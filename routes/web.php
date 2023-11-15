@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\GalleryController;
 
 
 /*
@@ -28,3 +29,9 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/logout', 'logout')->name('logout');
 });
 
+Route::resource('gallery', GalleryController::class);
+
+
+Route::get('/coba', function () {
+    return view('gallery.create');
+});

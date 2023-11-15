@@ -18,7 +18,7 @@
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     rel="stylesheet"
     />
-   
+    <link rel="stylesheet" href="{{ asset('lightbox2/dist/css/lightbox.min.css')}}">
 </head>
 
 <body>
@@ -38,6 +38,10 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}" href="{{ route('register') }}">Register</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ (request()->is('gallery')) ? 'active' : '' }}" href="{{
+                       route('gallery.index') }}">Gallery</a>
+                       </li>
                     @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,6 +72,7 @@
     type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
     ></script>
+    <script src="{{ asset('lightbox2/dist/js/lightbox-plus-jquery.min.js')}}"></script>
 </body>
 
 </html>

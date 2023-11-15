@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Jobs\SendMailJob;
 
 class LoginRegisterController extends Controller
 {
@@ -50,6 +51,12 @@ class LoginRegisterController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email
+        ];
+
+        dispatch(new SendMailJob($data));
         $credentials = $request->only('email', 'password');
         Auth::attempt($credentials);
         $request->session()->regenerate();

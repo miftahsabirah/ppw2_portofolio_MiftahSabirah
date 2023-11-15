@@ -53,6 +53,9 @@ https://www.tooplate.com/view/2115-marvel
                         <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
                     </li>
                     <li class="nav-item">
+                      <a href="#Gallery" class="nav-link"><span data-hover="Gallery">Gallery</span></a>
+                   </li>
+                    <li class="nav-item">
                       <a href="{{route('logout')}}" class="nav-link"><span data-hover="Log Out">Log Out</span></a>
                     </li>
                   
