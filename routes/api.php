@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GalleryAPIController; 
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/getgallery', [GalleryAPIController::class, 'getGallery'])->name('DapatGallery');
+Route::get('/gallery', [GalleryAPIController::class, 'index'])->name('DaftarGallery');
+Route::get('/creategallery', [GalleryAPIController::class, 'create'])->name('TambahGallery');
+Route::post('/penyimpananGallery', [GalleryAPIController::class, 'penyimpananGallery'])->name('Penyimpanangallery');

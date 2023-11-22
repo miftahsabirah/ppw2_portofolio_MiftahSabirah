@@ -1,0 +1,80 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Belajar API Gallery untuk Tugas Pertemuan 12...",
+        "description": "Maia Arelia Ashary",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "maiaarelia@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/api/getgallery": {
+            "get": {
+                "tags": [
+                    "Get Data Gallery"
+                ],
+                "summary": "Mengambil Data Gallery",
+                "description": "Data Gallery",
+                "operationId": "GetGallery",
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/penyimpananGallery": {
+            "post": {
+                "tags": [
+                    "Upload Gambar"
+                ],
+                "summary": "Mengunggah Gambar",
+                "description": "Mengunggah gambar.",
+                "operationId": "postGallery",
+                "requestBody": {
+                    "description": "Data untuk mengunggah gambar",
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "description": "Judul Upload",
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "description": "Deskripsi Gambar",
+                                        "type": "string"
+                                    },
+                                    "picture": {
+                                        "description": "File Gambar",
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Berhasil dijalankan"
+                    },
+                    "422": {
+                        "description": "Validasi Gagal. Mungkin ada data yang tidak sesuai format atau tidak lengkap."
+                    },
+                    "500": {
+                        "description": "Terjadi kesalahan server."
+                    }
+                }
+            }
+        }
+    }
+}
